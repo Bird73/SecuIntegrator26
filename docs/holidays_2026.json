@@ -1,0 +1,92 @@
+[
+  {
+    "Date": "2026-01-01T00:00:00",
+    "Description": "\u4E2D\u83EF\u6C11\u570B\u958B\u570B\u7D00\u5FF5\u65E5",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-02-12T00:00:00",
+    "Description": "\u5E02\u5834\u7121\u4EA4\u6613\uFF0C\u50C5\u8FA6\u7406\u7D50\u7B97\u4EA4\u5272\u4F5C\u696D",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-02-13T00:00:00",
+    "Description": "\u5E02\u5834\u7121\u4EA4\u6613\uFF0C\u50C5\u8FA6\u7406\u7D50\u7B97\u4EA4\u5272\u4F5C\u696D",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-02-16T00:00:00",
+    "Description": "\u8FB2\u66C6\u9664\u5915\u53CA\u6625\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-02-17T00:00:00",
+    "Description": "\u8FB2\u66C6\u9664\u5915\u53CA\u6625\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-02-18T00:00:00",
+    "Description": "\u8FB2\u66C6\u9664\u5915\u53CA\u6625\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-02-19T00:00:00",
+    "Description": "\u8FB2\u66C6\u9664\u5915\u53CA\u6625\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-02-20T00:00:00",
+    "Description": "\u8FB2\u66C6\u9664\u5915\u53CA\u6625\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-02-27T00:00:00",
+    "Description": "\u548C\u5E73\u7D00\u5FF5\u65E5",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-04-03T00:00:00",
+    "Description": "\u5152\u7AE5\u7BC0\u53CA\u6C11\u65CF\u6383\u5893\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-04-06T00:00:00",
+    "Description": "\u5152\u7AE5\u7BC0\u53CA\u6C11\u65CF\u6383\u5893\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-05-01T00:00:00",
+    "Description": "\u52DE\u52D5\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-06-19T00:00:00",
+    "Description": "\u7AEF\u5348\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-09-25T00:00:00",
+    "Description": "\u4E2D\u79CB\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-09-28T00:00:00",
+    "Description": "\u6559\u5E2B\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-10-09T00:00:00",
+    "Description": "\u570B\u6176\u65E5",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-10-26T00:00:00",
+    "Description": "\u81FA\u7063\u5149\u5FA9\u7BC0",
+    "IsHoliday": true
+  },
+  {
+    "Date": "2026-12-25T00:00:00",
+    "Description": "\u884C\u61B2\u7D00\u5FF5\u65E5",
+    "IsHoliday": true
+  }
+]

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  api:
+    image: secuintegrator26-api
+    build:
+      context: .
+      dockerfile: src/SecuIntegrator26.API/Dockerfile
+    ports:
+      - "5000:80"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/secuintegrator.db
+      - ASPNETCORE_ENVIRONMENT=Development
+    restart: unless-stopped
+
+  # client:
+  #   image: secuintegrator26-client
+  #   build:
+  #     context: ./src/SecuIntegrator26.Client
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:80"

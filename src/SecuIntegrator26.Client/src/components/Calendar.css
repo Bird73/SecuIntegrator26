@@ -1,0 +1,72 @@
+.calendar-month {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    width: 300px;
+}
+
+.calendar-month h3 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+}
+
+.day {
+    border: 1px solid #eee;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 2px;
+    transition: background-color 0.2s;
+}
+
+.day:hover {
+    background-color: #f0f8ff;
+}
+
+.day.holiday {
+    background-color: #ffebee;
+    border-color: #ef9a9a;
+}
+
+.day.holiday .solar {
+    color: #c62828;
+    font-weight: bold;
+}
+
+.solar {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.lunar {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.day.empty {
+    border: none;
+    cursor: default;
+    background: transparent;
+}
