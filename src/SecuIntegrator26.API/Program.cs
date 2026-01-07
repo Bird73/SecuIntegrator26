@@ -39,7 +39,7 @@ builder.Services.AddQuartz(q =>
     
     // Register HelloWorldJob
     var helloJobKey = new JobKey("HelloWorldJob");
-    q.AddJob<SecuIntegrator26.Services.Jobs.HelloWorldJob>(opts => opts.WithIdentity(helloJobKey));
+    q.AddJob<SecuIntegrator26.Services.Jobs.HelloWorldJob>(opts => opts.WithIdentity(helloJobKey).StoreDurably());
     
     q.AddTrigger(opts => opts
         .ForJob(helloJobKey)
@@ -50,7 +50,7 @@ builder.Services.AddQuartz(q =>
 
     // Register SyncStockSymbolsJob
     var syncJobKey = new JobKey("SyncStockSymbolsJob");
-    q.AddJob<SecuIntegrator26.Services.Jobs.SyncStockSymbolsJob>(opts => opts.WithIdentity(syncJobKey));
+    q.AddJob<SecuIntegrator26.Services.Jobs.SyncStockSymbolsJob>(opts => opts.WithIdentity(syncJobKey).StoreDurably());
 
     q.AddTrigger(opts => opts
         .ForJob(syncJobKey)
@@ -77,6 +77,14 @@ app.MapControllers();
 
 try
 {
+    using (var scope = app.Services.CreateScope())
+    {
+        var schedulerService = scope.ServiceProvider.GetRequiredService<SecuIntegrator26.Core.Interfaces.ISchedulerManagementService>();
+        // Wait for Quartz to start (it runs as HostedService) - actually RestoreConfig updates triggers, which is fine even if Quartz is starting.
+        // But we should await it.
+        await schedulerService.RestoreConfigAsync();
+    }
+
     Log.Information("Starting web host");
     app.Run();
 }

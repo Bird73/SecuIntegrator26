@@ -43,5 +43,19 @@ namespace SecuIntegrator26.API.Controllers
             await _schedulerService.ResumeJobAsync(name, group);
             return Ok();
         }
+
+        [HttpGet("config")]
+        public async Task<ActionResult<SecuIntegrator26.Core.Entities.JobScheduleConfig>> GetConfig()
+        {
+            var config = await _schedulerService.GetConfigAsync();
+            return Ok(config);
+        }
+
+        [HttpPost("config")]
+        public async Task<ActionResult> UpdateConfig([FromBody] SecuIntegrator26.Core.Entities.JobScheduleConfig config)
+        {
+            await _schedulerService.UpdateConfigAsync(config);
+            return Ok();
+        }
     }
 }

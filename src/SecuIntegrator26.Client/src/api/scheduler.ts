@@ -11,6 +11,19 @@ export interface JobStatusDto {
     cronExpression: string;
 }
 
+export interface JobSetting {
+    jobName: string;
+    groupName: string;
+    cronExpression: string;
+    cronExpressions: string[];
+    isEnabled: boolean;
+    description: string;
+}
+
+export interface JobScheduleConfig {
+    jobs: JobSetting[];
+}
+
 export const getJobs = async (): Promise<JobStatusDto[]> => {
     const response = await client.get<JobStatusDto[]>('/scheduler');
     return response.data;
@@ -26,4 +39,13 @@ export const pauseJob = async (name: string, group: string): Promise<void> => {
 
 export const resumeJob = async (name: string, group: string): Promise<void> => {
     await client.post(`/scheduler/resume?name=${name}&group=${group}`);
+};
+
+export const getSchedulerConfig = async (): Promise<JobScheduleConfig> => {
+    const response = await client.get<JobScheduleConfig>('/scheduler/config');
+    return response.data;
+};
+
+export const updateSchedulerConfig = async (config: JobScheduleConfig): Promise<void> => {
+    await client.post('/scheduler/config', config);
 };
