@@ -104,6 +104,17 @@ const SchedulerConfigForm: React.FC<Props> = ({ onClose }) => {
     return (
         <div style={{ padding: '20px', border: '1px solid #ccc', borderRadius: '8px', marginTop: '20px', backgroundColor: '#ffffff', color: '#333333' }}>
             <h3>排程參數設定</h3>
+
+            <div style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#e3f2fd', borderRadius: '4px' }}>
+                <label style={{ fontWeight: 'bold', marginRight: '10px' }}>資料起始日期 (回朔終點): </label>
+                <input
+                    type="date"
+                    value={config.dataStartDate ? config.dataStartDate.split('T')[0] : '2025-01-01'}
+                    onChange={(e) => setConfig({ ...config, dataStartDate: e.target.value })}
+                    style={{ padding: '5px' }}
+                />
+            </div>
+
             <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '20px', color: '#333333' }}>
                     <thead>

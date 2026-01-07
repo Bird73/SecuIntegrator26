@@ -71,48 +71,53 @@ const SchedulerManager: React.FC = () => {
             {showConfig ? (
                 <SchedulerConfigForm onClose={() => setShowConfig(false)} />
             ) : (
-                <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid #ddd' }}>
-                    <thead>
-                        <tr style={{ backgroundColor: '#f8f9fa' }}>
-                            <th style={{ padding: '10px', border: '1px solid #ddd' }}>Group</th>
-                            <th style={{ padding: '10px', border: '1px solid #ddd' }}>Name</th>
-                            <th style={{ padding: '10px', border: '1px solid #ddd' }}>Status</th>
-                            <th style={{ padding: '10px', border: '1px solid #ddd' }}>Cron</th>
-                            <th style={{ padding: '10px', border: '1px solid #ddd' }}>Next Fire</th>
-                            <th style={{ padding: '10px', border: '1px solid #ddd' }}>Last Fire</th>
-                            <th style={{ padding: '10px', border: '1px solid #ddd' }}>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {jobs.map((job, index) => (
-                            <tr key={`${job.group}-${job.name}-${index}`}>
-                                <td style={{ padding: '10px', border: '1px solid #ddd' }}>{job.group}</td>
-                                <td style={{ padding: '10px', border: '1px solid #ddd', fontWeight: 'bold' }}>{job.name}</td>
-                                <td style={{ padding: '10px', border: '1px solid #ddd' }}>
-                                    <span style={{
-                                        padding: '4px 8px',
-                                        borderRadius: '4px',
-                                        backgroundColor: job.triggerState === 'Normal' ? '#e8f5e9' : '#ffebee',
-                                        color: job.triggerState === 'Normal' ? '#2e7d32' : '#c62828'
-                                    }}>
-                                        {job.triggerState}
-                                    </span>
-                                </td>
-                                <td style={{ padding: '10px', border: '1px solid #ddd' }}>{job.cronExpression}</td>
-                                <td style={{ padding: '10px', border: '1px solid #ddd' }}>{job.nextFireTime ? new Date(job.nextFireTime).toLocaleString() : '-'}</td>
-                                <td style={{ padding: '10px', border: '1px solid #ddd' }}>{job.previousFireTime ? new Date(job.previousFireTime).toLocaleString() : '-'}</td>
-                                <td style={{ padding: '10px', border: '1px solid #ddd' }}>
-                                    <button onClick={() => handleTrigger(job.name, job.group)} style={{ marginRight: '5px' }}>Run Now</button>
-                                    {job.triggerState === 'Paused' ? (
-                                        <button onClick={() => handleResume(job.name, job.group)}>Resume</button>
-                                    ) : (
-                                        <button onClick={() => handlePause(job.name, job.group)}>Pause</button>
-                                    )}
-                                </td>
+                <div style={{ backgroundColor: '#ffffff', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                    <table style={{ width: '100%', borderCollapse: 'collapse', color: '#333333' }}>
+                        <thead>
+                            <tr style={{ backgroundColor: '#e0e0e0', color: '#000000' }}>
+                                <th style={{ padding: '12px', borderBottom: '2px solid #ccc', textAlign: 'left' }}>Group</th>
+                                <th style={{ padding: '12px', borderBottom: '2px solid #ccc', textAlign: 'left' }}>Name</th>
+                                <th style={{ padding: '12px', borderBottom: '2px solid #ccc', textAlign: 'left' }}>Status</th>
+                                <th style={{ padding: '12px', borderBottom: '2px solid #ccc', textAlign: 'left' }}>Cron</th>
+                                <th style={{ padding: '12px', borderBottom: '2px solid #ccc', textAlign: 'left' }}>Next Fire</th>
+                                <th style={{ padding: '12px', borderBottom: '2px solid #ccc', textAlign: 'left' }}>Last Fire</th>
+                                <th style={{ padding: '12px', borderBottom: '2px solid #ccc', textAlign: 'left' }}>Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table >
+                        </thead>
+                        <tbody>
+                            {jobs.map((job, index) => (
+                                <tr key={`${job.group}-${job.name}-${index}`} style={{ borderBottom: '1px solid #eee', backgroundColor: index % 2 === 0 ? '#ffffff' : '#f9f9f9' }}>
+                                    <td style={{ padding: '12px' }}>{job.group}</td>
+                                    <td style={{ padding: '12px', fontWeight: 'bold' }}>{job.name}</td>
+                                    <td style={{ padding: '12px' }}>
+                                        <span style={{
+                                            padding: '4px 8px',
+                                            borderRadius: '4px',
+                                            backgroundColor: job.triggerState === 'Normal' ? '#e8f5e9' : '#ffebee',
+                                            color: job.triggerState === 'Normal' ? '#2e7d32' : '#c62828',
+                                            fontWeight: 'bold',
+                                            border: '1px solid',
+                                            borderColor: job.triggerState === 'Normal' ? '#c8e6c9' : '#ffcdd2'
+                                        }}>
+                                            {job.triggerState}
+                                        </span>
+                                    </td>
+                                    <td style={{ padding: '12px', fontFamily: 'monospace' }}>{job.cronExpression}</td>
+                                    <td style={{ padding: '12px' }}>{job.nextFireTime ? new Date(job.nextFireTime).toLocaleString() : '-'}</td>
+                                    <td style={{ padding: '12px' }}>{job.previousFireTime ? new Date(job.previousFireTime).toLocaleString() : '-'}</td>
+                                    <td style={{ padding: '12px' }}>
+                                        <button onClick={() => handleTrigger(job.name, job.group)} style={{ marginRight: '5px', padding: '5px 10px', cursor: 'pointer', backgroundColor: '#2196F3', color: 'white', border: 'none', borderRadius: '4px' }}>Run Now</button>
+                                        {job.triggerState === 'Paused' ? (
+                                            <button onClick={() => handleResume(job.name, job.group)} style={{ padding: '5px 10px', cursor: 'pointer', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px' }}>Resume</button>
+                                        ) : (
+                                            <button onClick={() => handlePause(job.name, job.group)} style={{ padding: '5px 10px', cursor: 'pointer', backgroundColor: '#9E9E9E', color: 'white', border: 'none', borderRadius: '4px' }}>Pause</button>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table >
+                </div>
             )}
         </div >
     );

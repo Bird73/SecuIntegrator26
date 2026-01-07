@@ -21,6 +21,7 @@ export interface JobSetting {
 }
 
 export interface JobScheduleConfig {
+    dataStartDate: string;
     jobs: JobSetting[];
 }
 

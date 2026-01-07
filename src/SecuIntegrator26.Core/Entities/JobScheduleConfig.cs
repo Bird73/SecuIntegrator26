@@ -4,6 +4,7 @@ namespace SecuIntegrator26.Core.Entities
 {
     public class JobScheduleConfig
     {
+        public DateTime DataStartDate { get; set; } = new DateTime(2025, 1, 1);
         public List<JobSetting> Jobs { get; set; } = new List<JobSetting>();
     }
 
